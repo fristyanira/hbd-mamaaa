@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Mama</title>
+    <style>
+        body {
+            background-color: rgb(225, 172, 172);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background-color: rgb(99, 3, 3);
+            width: 500px;
+            margin: 100px auto;
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: rgb(224, 153, 167);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: aliceblue;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .love {
+            font-size: 28px;
+            margin-top: 13px;
+        }
+
+        .from {
+            margin-top: 20px;
+            font-size: 13px;
+            color: rgb(214, 204, 204);
+        }
+
+        .photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 15px 0;
+            border: 4px solid rgb(193, 180, 182);
+        }
+
+        /* LOPE JATUH */
+        .heart {
+            position: fixed;
+            top: -20px;
+            font-size: 20px;
+            animation: fall linear forwards;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- AUDIO -->
+    <audio id="bgMusic" loop>
+        <source src="../hbd mama/hbd.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="document.getElementById('bgMusic').play()">
+        ▶ Putar Musik
+    </button>
+
+    <div class="card">
+        <h1>🎂 Happy Birthday Mama 🎂</h1>
+
+        <img src="../hbd mama/mama.jpeg" alt="Foto Mama" class="photo">
+
+        <p>
+            Semoga Mama selalu sehat, bahagia, dan panjang umur 🥰🌹<br>
+            Terima kasih atas kasih sayang dan doanya ❤️✨<br>
+            Love you, Mama 💋🎈💖
+        </p>
+
+        <div class="love">🌹🌹🌹</div>
+        <div class="from">- titi 🌷</div>
+    </div>
+
+    <!-- SCRIPT LOPE JATUH -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
